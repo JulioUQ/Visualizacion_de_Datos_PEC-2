@@ -72,12 +72,28 @@
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             background: #fff;
+            position: relative;
         }
         
         .visualization-container iframe {
             width: 100%;
             height: 100%;
             border: none;
+            display: block;
+        }
+
+        .visualization-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .visualization-container.show-image iframe {
+            display: none;
+        }
+
+        .visualization-container.show-image img {
             display: block;
         }
         
@@ -153,7 +169,7 @@
 </head>
 <body>
     <header>
-        <h1>📊 Visualización de Datos - PEC 2</h1>
+        <h1>Visualización de Datos - PEC 2</h1>
         <p>Análisis y representaciones gráficas de datos</p>
     </header>
 
@@ -162,19 +178,24 @@
         <section class="visualization-section">
             <h2>1. Gráfico de Pastel (Pie Chart)</h2>
             
-            <div class="visualization-container">
-                <iframe src="Visualizaciones/pie_chart.html" title="Gráfico de Pastel"></iframe>
+            <div class="visualization-container" id="viz1">
+                <iframe src="Visualizaciones/pie_chart.html" title="Gráfico de Pastel" onload="checkIframeLoad(this)" onerror="showFallbackImage('viz1')"></iframe>
+                <img src="Visualizaciones/pie_chart.png" alt="Gráfico de Pastel">
             </div>
-            <a href="Visualizaciones/pie_chart.html" target="_blank" class="fullscreen-btn">🔍 Ver en pantalla completa</a>
+            <a href="Visualizaciones/pie_chart.html" target="_blank" class="fullscreen-btn">Ver en pantalla completa</a>
             
             <div class="description">
-                <h3>📝 Descripción</h3>
-                <p>Este gráfico de pastel muestra la distribución proporcional de las diferentes categorías en el conjunto de datos. Cada sector representa un porcentaje del total.</p>
+                <h3>Descripción</h3>
+                <p>El **pie chart**, introducido por *William Playfair* en 1801 y popularizado por *Florence Nightingale*, representa un conjunto de categorías como sectores proporcionales de un círculo.
+                   Cada sector muestra la **participación relativa** de una categoría respecto al total. 
+                   Se calculó el **volumen medio** negociado por empresa y se representó con un **gráfico de donut** (variación moderna del pie chart) usando Plotly.</p>
             </div>
             
             <div class="interpretation">
-                <h3>🔍 Interpretación</h3>
-                <p>A partir de esta visualización podemos observar la distribución de las categorías principales. Los sectores más grandes indican las categorías con mayor representación en el conjunto de datos, permitiendo identificar rápidamente las proporciones relativas.</p>
+                <h3>Interpretación</h3>
+                <p>El gráfico muestra que **Apple** concentra aproximadamente un **56 % del volumen medio total**, mientras que **Microsoft** y **Google** suman el resto.
+                   Esto refleja **mayor liquidez y actividad bursátil** en Apple.
+                   El objetivo es ofrecer una visión clara y rápida de la **proporción de mercado** de cada empresa.</p>
             </div>
         </section>
 
@@ -182,19 +203,25 @@
         <section class="visualization-section">
             <h2>2. Gráfico de Velas (CandleSticks)</h2>
             
-            <div class="visualization-container">
-                <iframe src="Visualizaciones/CandleSticks.html" title="Gráfico de Velas"></iframe>
+            <div class="visualization-container" id="viz2">
+                <iframe src="Visualizaciones/CandleSticks.html" title="Gráfico de Velas" onload="checkIframeLoad(this)" onerror="showFallbackImage('viz2')"></iframe>
+                <img src="Visualizaciones/CandleSticks.png" alt="Gráfico de Velas">
             </div>
-            <a href="Visualizaciones/CandleSticks.html" target="_blank" class="fullscreen-btn">🔍 Ver en pantalla completa</a>
+            <a href="Visualizaciones/CandleSticks.html" target="_blank" class="fullscreen-btn">Ver en pantalla completa</a>
             
             <div class="description">
-                <h3>📝 Descripción</h3>
-                <p>El gráfico de velas (candlesticks) es una representación visual utilizada principalmente en análisis financiero y de series temporales. Cada vela muestra los valores de apertura, cierre, máximo y mínimo en un período determinado.</p>
+                <h3>Descripción</h3>
+                <p>Desarrollado en el siglo XVIII por el comerciante japonés **Munehisa Homma** y popularizado por **Steve Nison** en 1991, el **candlestick chart** representa la **evolución temporal del precio** de un activo mediante velas con los valores **OHLC** (Open, High, Low, Close).
+                   Con Plotly Graph Objects se graficaron las velas de las tres empresas junto con sus medias móviles
+                </p>
             </div>
             
             <div class="interpretation">
-                <h3>🔍 Interpretación</h3>
-                <p>Los patrones observados en las velas permiten identificar tendencias, volatilidad y puntos de cambio en los datos. Las velas verdes/rojas indican períodos de crecimiento/decrecimiento, mientras que las sombras muestran la amplitud de variación en cada período.</p>
+                <h3>Interpretación</h3>
+                <p>El gráfico muestra la **evolución diaria de precios entre 2023 y 2024**.
+                   Se observan **tendencias alcistas**, con **mayor volatilidad en Apple**, cuyos cuerpos de vela son más amplios.
+                   Las medias móviles ayudan a detectar fases de consolidación y cambios de tendencia.
+                   El objetivo comunicativo es **mostrar de forma dinámica la evolución histórica y comparativa de precios**.</p>
             </div>
         </section>
 
@@ -202,26 +229,77 @@
         <section class="visualization-section">
             <h2>3. Envolvente Convexa (Convex Hull)</h2>
             
-            <div class="visualization-container">
-                <iframe src="Visualizaciones/convex_hull.html" title="Convex Hull"></iframe>
+            <div class="visualization-container" id="viz3">
+                <iframe src="Visualizaciones/convex_hull.html" title="Convex Hull" onload="checkIframeLoad(this)" onerror="showFallbackImage('viz3')"></iframe>
+                <img src="Visualizaciones/convex_hull.png" alt="Convex Hull">
             </div>
-            <a href="Visualizaciones/convex_hull.html" target="_blank" class="fullscreen-btn">🔍 Ver en pantalla completa</a>
+            <a href="Visualizaciones/convex_hull.html" target="_blank" class="fullscreen-btn">Ver en pantalla completa</a>
             
             <div class="description">
-                <h3>📝 Descripción</h3>
-                <p>La envolvente convexa representa el polígono convexo más pequeño que contiene todos los puntos del conjunto de datos. Es útil para visualizar la dispersión, agrupación y límites de los datos en un espacio bidimensional.</p>
+                <h3>Descripción</h3>
+                <p>La **envolvente convexa** o *Convex Hull* es un concepto de **geometría computacional** que forma el **polígono convexo mínimo** que contiene un conjunto de puntos.
+                   Imaginemos una goma elástica rodeando los puntos: esa forma es la envolvente Se calculó con `scipy.spatial.ConvexHull` y se visualizó con Plotly, mostrando los puntos y la envolvente por empresa.
+                   Cada área coloreada delimita el **espacio de variabilidad de precios**.</p>
             </div>
             
             <div class="interpretation">
-                <h3>🔍 Interpretación</h3>
-                <p>La forma y tamaño de la envolvente convexa nos permite identificar la distribución espacial de los datos, detectar outliers que se encuentran en los vértices del polígono, y comprender la extensión del conjunto de datos en diferentes direcciones.</p>
+                <h3>Interpretación</h3>
+                <p>Las envolventes permiten comparar la **dispersión y estabilidad** de las acciones:
+
+                    * **Apple:** envolvente más estrecha → menor volatilidad
+                    * **Microsoft:** mayor dispersión → más riesgo
+                    * **Google:** comportamiento intermedio
+                                    
+                    La técnica permite identificar **límites de comportamiento y valores anómalos**, siendo útil para análisis exploratorios y financieros.</p>
             </div>
         </section>
     </div>
 
     <footer>
         <p>Proyecto realizado para la PEC 2 de Visualización de Datos</p>
-        <p><a href="https://github.com/JulioUQ/Visualizacion_de_Datos_PEC-2" target="_blank">📁 Ver en GitHub</a></p>
+        <p><a href="https://github.com/JulioUQ/Visualizacion_de_Datos_PEC-2" target="_blank">Ver en GitHub</a></p>
     </footer>
+
+    <script>
+        // Función para verificar si el iframe cargó correctamente
+        function checkIframeLoad(iframe) {
+            try {
+                // Intentar acceder al contenido del iframe
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                
+                // Si el iframe está vacío o tiene error, mostrar imagen
+                if (!iframeDoc || iframeDoc.body.children.length === 0) {
+                    showFallbackImage(iframe.parentElement.id);
+                }
+            } catch (e) {
+                // Si hay error de acceso (CORS, etc.), mostrar imagen
+                showFallbackImage(iframe.parentElement.id);
+            }
+        }
+
+        // Función para mostrar la imagen de respaldo
+        function showFallbackImage(containerId) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.classList.add('show-image');
+            }
+        }
+
+        // Timeout de seguridad: después de 3 segundos, verificar si los iframes cargaron
+        setTimeout(() => {
+            document.querySelectorAll('.visualization-container iframe').forEach(iframe => {
+                checkIframeLoad(iframe);
+            });
+        }, 3000);
+
+        // Verificar cuando la página termine de cargar
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.visualization-container iframe').forEach(iframe => {
+                    checkIframeLoad(iframe);
+                });
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
