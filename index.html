@@ -22,8 +22,27 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 2rem 0;
-            text-align: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-uoc {
+            height: 60px;
+            width: auto;
+        }
+
+        .header-text {
+            flex: 1;
+            text-align: center;
         }
         
         header h1 {
@@ -34,6 +53,13 @@
         header p {
             font-size: 1.1rem;
             opacity: 0.9;
+        }
+
+        .author {
+            text-align: right;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-style: italic;
         }
         
         .container {
@@ -125,6 +151,28 @@
             color: #555;
             margin-bottom: 0.5rem;
         }
+
+        .description p, .interpretation p {
+            line-height: 1.8;
+        }
+
+        .description strong, .interpretation strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .description em, .interpretation em {
+            color: #764ba2;
+            font-style: italic;
+        }
+
+        .description code, .interpretation code {
+            background: #e9ecef;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
         
         .interpretation {
             background: #e8f4f8;
@@ -137,6 +185,15 @@
         .interpretation h3 {
             color: #555;
             margin-bottom: 0.5rem;
+        }
+
+        .interpretation ul {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .interpretation li {
+            margin: 0.5rem 0;
         }
         
         footer {
@@ -165,12 +222,41 @@
             background: #f0f0f0;
             border-radius: 8px;
         }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-uoc {
+                margin-bottom: 1rem;
+            }
+
+            .author {
+                text-align: center;
+                margin-top: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Visualización de Datos - PEC 2</h1>
-        <p>Análisis y representaciones gráficas de datos</p>
+        <div class="header-content">
+            <img src="https://www.uoc.edu/portal/_resources/common/imatges/marca_UOC/logo_UOC.png" alt="Logo UOC" class="logo-uoc">
+            <div class="header-text">
+                <h1>Visualización de Datos - PEC 2</h1>
+                <p>Análisis y representaciones gráficas de datos</p>
+            </div>
+            <div class="author">
+                Autor: Julio Ubeda Quesada
+            </div>
+        </div>
     </header>
 
     <div class="container">
@@ -185,17 +271,17 @@
             <a href="Visualizaciones/pie_chart.html" target="_blank" class="fullscreen-btn">Ver en pantalla completa</a>
             
             <div class="description">
-                <h3>Descripción</h3>
-                <p>El **pie chart**, introducido por *William Playfair* en 1801 y popularizado por *Florence Nightingale*, representa un conjunto de categorías como sectores proporcionales de un círculo.
-                   Cada sector muestra la **participación relativa** de una categoría respecto al total. 
-                   Se calculó el **volumen medio** negociado por empresa y se representó con un **gráfico de donut** (variación moderna del pie chart) usando Plotly.</p>
+                <h3>📝 Descripción</h3>
+                <p>El <strong>pie chart</strong>, introducido por <em>William Playfair</em> en 1801 y popularizado por <em>Florence Nightingale</em>, representa un conjunto de categorías como sectores proporcionales de un círculo.
+                   Cada sector muestra la <strong>participación relativa</strong> de una categoría respecto al total. 
+                   Se calculó el <strong>volumen medio</strong> negociado por empresa y se representó con un <strong>gráfico de donut</strong> (variación moderna del pie chart) usando Plotly.</p>
             </div>
             
             <div class="interpretation">
-                <h3>Interpretación</h3>
-                <p>El gráfico muestra que **Apple** concentra aproximadamente un **56 % del volumen medio total**, mientras que **Microsoft** y **Google** suman el resto.
-                   Esto refleja **mayor liquidez y actividad bursátil** en Apple.
-                   El objetivo es ofrecer una visión clara y rápida de la **proporción de mercado** de cada empresa.</p>
+                <h3>🔍 Interpretación</h3>
+                <p>El gráfico muestra que <strong>Apple</strong> concentra aproximadamente un <strong>56 % del volumen medio total</strong>, mientras que <strong>Microsoft</strong> y <strong>Google</strong> suman el resto.
+                   Esto refleja <strong>mayor liquidez y actividad bursátil</strong> en Apple.
+                   El objetivo es ofrecer una visión clara y rápida de la <strong>proporción de mercado</strong> de cada empresa.</p>
             </div>
         </section>
 
@@ -210,18 +296,17 @@
             <a href="Visualizaciones/CandleSticks.html" target="_blank" class="fullscreen-btn">Ver en pantalla completa</a>
             
             <div class="description">
-                <h3>Descripción</h3>
-                <p>Desarrollado en el siglo XVIII por el comerciante japonés **Munehisa Homma** y popularizado por **Steve Nison** en 1991, el **candlestick chart** representa la **evolución temporal del precio** de un activo mediante velas con los valores **OHLC** (Open, High, Low, Close).
-                   Con Plotly Graph Objects se graficaron las velas de las tres empresas junto con sus medias móviles
-                </p>
+                <h3>📝 Descripción</h3>
+                <p>Desarrollado en el siglo XVIII por el comerciante japonés <strong>Munehisa Homma</strong> y popularizado por <strong>Steve Nison</strong> en 1991, el <strong>candlestick chart</strong> representa la <strong>evolución temporal del precio</strong> de un activo mediante velas con los valores <strong>OHLC</strong> (Open, High, Low, Close).
+                   Con Plotly Graph Objects se graficaron las velas de las tres empresas junto con sus medias móviles.</p>
             </div>
             
             <div class="interpretation">
-                <h3>Interpretación</h3>
-                <p>El gráfico muestra la **evolución diaria de precios entre 2023 y 2024**.
-                   Se observan **tendencias alcistas**, con **mayor volatilidad en Apple**, cuyos cuerpos de vela son más amplios.
+                <h3>🔍 Interpretación</h3>
+                <p>El gráfico muestra la <strong>evolución diaria de precios entre 2023 y 2024</strong>.
+                   Se observan <strong>tendencias alcistas</strong>, con <strong>mayor volatilidad en Apple</strong>, cuyos cuerpos de vela son más amplios.
                    Las medias móviles ayudan a detectar fases de consolidación y cambios de tendencia.
-                   El objetivo comunicativo es **mostrar de forma dinámica la evolución histórica y comparativa de precios**.</p>
+                   El objetivo comunicativo es <strong>mostrar de forma dinámica la evolución histórica y comparativa de precios</strong>.</p>
             </div>
         </section>
 
@@ -236,28 +321,29 @@
             <a href="Visualizaciones/convex_hull.html" target="_blank" class="fullscreen-btn">Ver en pantalla completa</a>
             
             <div class="description">
-                <h3>Descripción</h3>
-                <p>La **envolvente convexa** o *Convex Hull* es un concepto de **geometría computacional** que forma el **polígono convexo mínimo** que contiene un conjunto de puntos.
-                   Imaginemos una goma elástica rodeando los puntos: esa forma es la envolvente Se calculó con `scipy.spatial.ConvexHull` y se visualizó con Plotly, mostrando los puntos y la envolvente por empresa.
-                   Cada área coloreada delimita el **espacio de variabilidad de precios**.</p>
+                <h3>📝 Descripción</h3>
+                <p>La <strong>envolvente convexa</strong> o <em>Convex Hull</em> es un concepto de <strong>geometría computacional</strong> que forma el <strong>polígono convexo mínimo</strong> que contiene un conjunto de puntos.
+                   Imaginemos una goma elástica rodeando los puntos: esa forma es la envolvente. Se calculó con <code>scipy.spatial.ConvexHull</code> y se visualizó con Plotly, mostrando los puntos y la envolvente por empresa.
+                   Cada área coloreada delimita el <strong>espacio de variabilidad de precios</strong>.</p>
             </div>
             
             <div class="interpretation">
-                <h3>Interpretación</h3>
-                <p>Las envolventes permiten comparar la **dispersión y estabilidad** de las acciones:
-
-                    * **Apple:** envolvente más estrecha → menor volatilidad
-                    * **Microsoft:** mayor dispersión → más riesgo
-                    * **Google:** comportamiento intermedio
-                                    
-                    La técnica permite identificar **límites de comportamiento y valores anómalos**, siendo útil para análisis exploratorios y financieros.</p>
+                <h3>🔍 Interpretación</h3>
+                <p>Las envolventes permiten comparar la <strong>dispersión y estabilidad</strong> de las acciones:</p>
+                <ul>
+                    <li><strong>Apple:</strong> envolvente más estrecha → menor volatilidad</li>
+                    <li><strong>Microsoft:</strong> mayor dispersión → más riesgo</li>
+                    <li><strong>Google:</strong> comportamiento intermedio</li>
+                </ul>
+                <p>La técnica permite identificar <strong>límites de comportamiento y valores anómalos</strong>, siendo útil para análisis exploratorios y financieros.</p>
             </div>
         </section>
     </div>
 
     <footer>
         <p>Proyecto realizado para la PEC 2 de Visualización de Datos</p>
-        <p><a href="https://github.com/JulioUQ/Visualizacion_de_Datos_PEC-2" target="_blank">Ver en GitHub</a></p>
+        <p><strong>Autor:</strong> Julio Ubeda Quesada</p>
+        <p><a href="https://github.com/JulioUQ/Visualizacion_de_Datos_PEC-2" target="_blank">📁 Ver en GitHub</a></p>
     </footer>
 
     <script>
