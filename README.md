@@ -39,12 +39,3 @@ Columnas principales:
 | Low      | Precio mínimo |
 | Close    | Precio de cierre |
 | Volume   | Volumen negociado |
-
-
-## Tecnologías utilizadas
-
-- **Python 3**
-- **Plotly** (para visualizaciones interactivas)
-- **Pandas** (para manipulación de datos)
-- **SciPy** (para el cálculo del Convex Hull)
-- **Jupyter Notebook / VS Code**
