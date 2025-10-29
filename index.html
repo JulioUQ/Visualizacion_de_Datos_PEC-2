@@ -63,12 +63,38 @@
             border-bottom: 3px solid #667eea;
         }
         
-        .visualization-section img {
+        /* Contenedor para el iframe */
+        .visualization-container {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
+            height: 600px;
             margin: 1.5rem 0;
+            border-radius: 8px;
+            overflow: hidden;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+        
+        .visualization-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        
+        /* Botón para ver en pantalla completa */
+        .fullscreen-btn {
+            display: inline-block;
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        .fullscreen-btn:hover {
+            background: #764ba2;
         }
         
         .description {
@@ -113,11 +139,21 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Loading placeholder */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Visualización de Datos - PEC 2</h1>
+        <h1>📊 Visualización de Datos - PEC 2</h1>
         <p>Análisis y representaciones gráficas de datos</p>
     </header>
 
@@ -125,55 +161,67 @@
         <!-- Visualización 1: Pie Chart -->
         <section class="visualization-section">
             <h2>1. Gráfico de Pastel (Pie Chart)</h2>
-            <img src="Visualizaciones/pie_chart.html" alt="Gráfico de Pastel" onerror="this.src='Visualizaciones/pie_chart.png'">
+            
+            <div class="visualization-container">
+                <iframe src="Visualizaciones/pie_chart.html" title="Gráfico de Pastel"></iframe>
+            </div>
+            <a href="Visualizaciones/pie_chart.html" target="_blank" class="fullscreen-btn">🔍 Ver en pantalla completa</a>
             
             <div class="description">
-                <h3>Descripción</h3>
+                <h3>📝 Descripción</h3>
                 <p>Este gráfico de pastel muestra la distribución proporcional de las diferentes categorías en el conjunto de datos. Cada sector representa un porcentaje del total.</p>
             </div>
             
             <div class="interpretation">
-                <h3>Interpretación</h3>
-                <p>A partir de esta visualización podemos observar... [Aquí irá tu interpretación detallada]</p>
+                <h3>🔍 Interpretación</h3>
+                <p>A partir de esta visualización podemos observar la distribución de las categorías principales. Los sectores más grandes indican las categorías con mayor representación en el conjunto de datos, permitiendo identificar rápidamente las proporciones relativas.</p>
             </div>
         </section>
 
         <!-- Visualización 2: CandleSticks -->
         <section class="visualization-section">
             <h2>2. Gráfico de Velas (CandleSticks)</h2>
-            <img src="Visualizaciones/CandleSticks.html" alt="Gráfico de Velas" onerror="this.src='Visualizaciones/candlesticks.png'">
+            
+            <div class="visualization-container">
+                <iframe src="Visualizaciones/CandleSticks.html" title="Gráfico de Velas"></iframe>
+            </div>
+            <a href="Visualizaciones/CandleSticks.html" target="_blank" class="fullscreen-btn">🔍 Ver en pantalla completa</a>
             
             <div class="description">
-                <h3>Descripción</h3>
-                <p>El gráfico de velas (candlesticks) es una representación visual utilizada principalmente en análisis financiero. Cada vela muestra los valores de apertura, cierre, máximo y mínimo.</p>
+                <h3>📝 Descripción</h3>
+                <p>El gráfico de velas (candlesticks) es una representación visual utilizada principalmente en análisis financiero y de series temporales. Cada vela muestra los valores de apertura, cierre, máximo y mínimo en un período determinado.</p>
             </div>
             
             <div class="interpretation">
-                <h3>Interpretación</h3>
-                <p>Los patrones observados en las velas indican... [Aquí irá tu interpretación detallada]</p>
+                <h3>🔍 Interpretación</h3>
+                <p>Los patrones observados en las velas permiten identificar tendencias, volatilidad y puntos de cambio en los datos. Las velas verdes/rojas indican períodos de crecimiento/decrecimiento, mientras que las sombras muestran la amplitud de variación en cada período.</p>
             </div>
         </section>
 
         <!-- Visualización 3: Convex Hull -->
         <section class="visualization-section">
             <h2>3. Envolvente Convexa (Convex Hull)</h2>
-            <img src="Visualizaciones/convex_hull.html" alt="Convex Hull" onerror="this.src='Visualizaciones/convex_hull.png'">
+            
+            <div class="visualization-container">
+                <iframe src="Visualizaciones/convex_hull.html" title="Convex Hull"></iframe>
+            </div>
+            <a href="Visualizaciones/convex_hull.html" target="_blank" class="fullscreen-btn">🔍 Ver en pantalla completa</a>
             
             <div class="description">
-                <h3>Descripción</h3>
-                <p>La envolvente convexa representa el polígono convexo más pequeño que contiene todos los puntos del conjunto de datos. Es útil para visualizar la dispersión y agrupación de datos.</p>
+                <h3>📝 Descripción</h3>
+                <p>La envolvente convexa representa el polígono convexo más pequeño que contiene todos los puntos del conjunto de datos. Es útil para visualizar la dispersión, agrupación y límites de los datos en un espacio bidimensional.</p>
             </div>
             
             <div class="interpretation">
-                <h3>Interpretación</h3>
-                <p>La forma y tamaño de la envolvente convexa nos permite identificar... [Aquí irá tu interpretación detallada]</p>
+                <h3>🔍 Interpretación</h3>
+                <p>La forma y tamaño de la envolvente convexa nos permite identificar la distribución espacial de los datos, detectar outliers que se encuentran en los vértices del polígono, y comprender la extensión del conjunto de datos en diferentes direcciones.</p>
             </div>
         </section>
     </div>
 
     <footer>
         <p>Proyecto realizado para la PEC 2 de Visualización de Datos</p>
-        <p><a href="https://github.com/JulioUQ/Visualizacion_de_Datos_PEC-2" target="_blank">Ver en GitHub</a></p>
+        <p><a href="https://github.com/JulioUQ/Visualizacion_de_Datos_PEC-2" target="_blank">📁 Ver en GitHub</a></p>
     </footer>
 </body>
 </html>
