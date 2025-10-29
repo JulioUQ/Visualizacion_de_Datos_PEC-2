@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de Datos - PEC 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .visualization-section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .visualization-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .visualization-section h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .visualization-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .description {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            margin: 1rem 0;
+        }
+        
+        .description h3 {
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+        
+        .interpretation {
+            background: #e8f4f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+            margin: 1rem 0;
+        }
+        
+        .interpretation h3 {
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #333;
+            color: white;
+            margin-top: 3rem;
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Visualización de Datos - PEC 2</h1>
+        <p>Análisis y representaciones gráficas de datos</p>
+    </header>
+
+    <div class="container">
+        <!-- Visualización 1: Pie Chart -->
+        <section class="visualization-section">
+            <h2>1. Gráfico de Pastel (Pie Chart)</h2>
+            <img src="Visualizaciones/pie_chart.html" alt="Gráfico de Pastel" onerror="this.src='Visualizaciones/pie_chart.png'">
+            
+            <div class="description">
+                <h3>Descripción</h3>
+                <p>Este gráfico de pastel muestra la distribución proporcional de las diferentes categorías en el conjunto de datos. Cada sector representa un porcentaje del total.</p>
+            </div>
+            
+            <div class="interpretation">
+                <h3>Interpretación</h3>
+                <p>A partir de esta visualización podemos observar... [Aquí irá tu interpretación detallada]</p>
+            </div>
+        </section>
+
+        <!-- Visualización 2: CandleSticks -->
+        <section class="visualization-section">
+            <h2>2. Gráfico de Velas (CandleSticks)</h2>
+            <img src="Visualizaciones/CandleSticks.html" alt="Gráfico de Velas" onerror="this.src='Visualizaciones/candlesticks.png'">
+            
+            <div class="description">
+                <h3>Descripción</h3>
+                <p>El gráfico de velas (candlesticks) es una representación visual utilizada principalmente en análisis financiero. Cada vela muestra los valores de apertura, cierre, máximo y mínimo.</p>
+            </div>
+            
+            <div class="interpretation">
+                <h3>Interpretación</h3>
+                <p>Los patrones observados en las velas indican... [Aquí irá tu interpretación detallada]</p>
+            </div>
+        </section>
+
+        <!-- Visualización 3: Convex Hull -->
+        <section class="visualization-section">
+            <h2>3. Envolvente Convexa (Convex Hull)</h2>
+            <img src="Visualizaciones/convex_hull.html" alt="Convex Hull" onerror="this.src='Visualizaciones/convex_hull.png'">
+            
+            <div class="description">
+                <h3>Descripción</h3>
+                <p>La envolvente convexa representa el polígono convexo más pequeño que contiene todos los puntos del conjunto de datos. Es útil para visualizar la dispersión y agrupación de datos.</p>
+            </div>
+            
+            <div class="interpretation">
+                <h3>Interpretación</h3>
+                <p>La forma y tamaño de la envolvente convexa nos permite identificar... [Aquí irá tu interpretación detallada]</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Proyecto realizado para la PEC 2 de Visualización de Datos</p>
+        <p><a href="https://github.com/JulioUQ/Visualizacion_de_Datos_PEC-2" target="_blank">Ver en GitHub</a></p>
+    </footer>
+</body>
+</html>
