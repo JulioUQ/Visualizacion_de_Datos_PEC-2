@@ -67,7 +67,7 @@ pie_fig = go.Pie(
 )
 
 pie_layout = go.Layout(
-    title="📊 Distribución del volumen medio por empresa",
+    title="Distribución del volumen medio por empresa",
     showlegend=False
 )
 
@@ -79,7 +79,7 @@ pie_chart = go.Figure(data=[pie_fig], layout=pie_layout)
 # -------------------------------------------------
 
 # Creamos la figura base con subplots
-fig_candlestick = make_subplots(rows=1, cols=1, subplot_titles=["💹 Evolución temporal de precios"])
+fig_candlestick = make_subplots(rows=1, cols=1, subplot_titles=["Evolución temporal de precios"])
 
 # Tickers únicos
 tickers = df["Ticker"].unique()
@@ -109,7 +109,7 @@ for i, ticker in enumerate(tickers):
         dict(label=ticker,
              method="update",
              args=[{"visible": visible},
-                   {"title": f"💹 Evolución de precios OHLC: {ticker}"}])
+                   {"title": f"Evolución de precios OHLC: {ticker}"}])
     )
 
 fig_candlestick.update_layout(
@@ -117,7 +117,7 @@ fig_candlestick.update_layout(
     xaxis_title="Fecha",
     yaxis_title="Precio ($)",
     xaxis_rangeslider_visible=True,
-    title="💹 Evolución de precios OHLC",
+    title="Evolución de precios OHLC",
     template="plotly_white"
 )
 
@@ -193,7 +193,7 @@ fig_final = make_subplots(
         [{"type": "domain", "colspan": 2}, None],  # Pie chart arriba
         [{"type": "xy"}, {"type": "xy"}]           # Candlestick y Convex Hull abajo
     ],
-    subplot_titles=("📊 Distribución Volumen Medio", "💹 Candlestick Chart", "🔷 Envolvente Convexa")
+    subplot_titles=("Distribución Volumen Medio", "Candlestick Chart", "Envolvente Convexa")
 )
 
 # Añadir pie chart (fila 1)
@@ -213,7 +213,7 @@ fig_final.update_layout(
     height=1000,
     showlegend=True,
     template="plotly_white",
-    title_text="📈 Análisis Financiero de Acciones — Pie Chart, Candlestick y Convex Hull",
+    title_text="Análisis Financiero de Acciones — Pie Chart, Candlestick y Convex Hull",
 )
 
 fig_final.write_html("visualizaciones_financieras.html")
